@@ -3,17 +3,14 @@ export default class Car {
     this._brand = brand;
     this._motor = motor;
     this._color = color;
+  }
 
-    // Define clone method using a Symbol
-    const cloneMethod = Symbol('clone');
-    this[cloneMethod] = function () {
-      return new Car(this._brand, this._motor, this._color);
-    };
+  static get [Symbol.species]() {
+    return this;
   }
 
   cloneCar() {
-    // Call the clone method defined using the Symbol
-    const cloneMethod = Symbol.for('clone');
-    return this[cloneMethod]();
+    const clone = this.constructor[Symbol.species];
+    return new clone();
   }
 }
