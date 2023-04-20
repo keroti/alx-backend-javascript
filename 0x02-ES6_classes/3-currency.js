@@ -14,25 +14,25 @@ export default class Currency {
     return this._code;
   }
 
-  set code(value) {
-    if (typeof value !== 'string') {
+  set code(code) {
+    if (typeof code !== 'string') {
       throw new TypeError('Name must be a string');
     }
-    this._code = value;
+    this._code = code;
   }
 
   get name() {
     return this._name;
   }
 
-  set name(value) {
-    if (typeof value !== 'string') {
+  set name(name) {
+    if (typeof name !== 'string') {
       throw new TypeError('Name must be a string');
     }
-    this._name = value;
+    this._name = name;
   }
 
   displayFullCurrency() {
-    return `${this._name}(${this._code})`;
+    return `${this._name} (${this._code})`;
   }
 }
