@@ -14,7 +14,7 @@ function countStudents(path) {
           const [firstName, , , field] = line.split(',');
           if (field === 'field') {
             // Skip the header line
-            continue;
+            continue;  // eslint-disable-line
           }
           if (!fields[field]) {
             fields[field] = [];
